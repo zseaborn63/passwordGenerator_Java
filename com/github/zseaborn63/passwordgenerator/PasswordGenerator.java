@@ -137,14 +137,17 @@ public class PasswordGenerator{
 
             char[] passChars = ConvertToChars.convert(words, separators);
 
-            char[] intReplaceChars = replaceChar(Arrays.copyOf(passChars, passChars.length), intReplacementMap);
+            System.out.println("To Char String:\n\t" + new String(passChars));
+
+            char[] intReplaceChars = replaceChar(Arrays.copyOf(passChars.clone(), passChars.length), intReplacementMap);
             if (Arrays.equals(passChars, intReplaceChars)){
                 continue;
             }
             passChars = intReplaceChars;
-
-            char[] specialCharReplacementChars = replaceChar(passChars, specialCharReplacementMap);
+            System.out.println("To int replace:\n\t" + new String(passChars));
+            char[] specialCharReplacementChars = replaceChar(passChars.clone(), specialCharReplacementMap);
             if (Arrays.equals(passChars, specialCharReplacementChars)){
+                System.out.println("They are equal!\n\t" + new String(specialCharReplacementChars));
                 continue;
             }
             passChars = specialCharReplacementChars;
@@ -155,8 +158,6 @@ public class PasswordGenerator{
         }
 
 
-        
-        password = "tmp";
         System.out.println("The Generated Password:");
         System.out.println("\t" + password);
     }
