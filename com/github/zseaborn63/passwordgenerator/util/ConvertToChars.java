@@ -3,10 +3,10 @@ package com.github.zseaborn63.passwordgenerator.util;
 import java.security.SecureRandom;
 
 public class ConvertToChars {
-    public static char[] convert(String[] wordArray, String[] allSeperators){
+    public static char[] convert(String[] wordArray, char[] allSeperators){
         SecureRandom sepRandom = new SecureRandom();
         int sepIndex = sepRandom.nextInt(allSeperators.length);
-        char sep = allSeperators[sepIndex].toCharArray()[0];
+        char sep = allSeperators[sepIndex];
 
         // Split array of words into correct array of characters
         int passLength = 0;
