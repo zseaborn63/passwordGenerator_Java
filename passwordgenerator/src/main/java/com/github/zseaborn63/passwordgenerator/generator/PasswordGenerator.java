@@ -1,4 +1,4 @@
-package com.github.zseaborn63.passwordgenerator;
+package com.github.zseaborn63.passwordgenerator.generator;
 
 import java.security.SecureRandom;
 import java.util.Arrays;
@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.github.zseaborn63.passwordgenerator.util.ConvertToChars;
-import com.github.zseaborn63.passwordgenerator.util.GetWords;
+import com.github.zseaborn63.passwordgenerator.generator.util.ConvertToChars;
+import com.github.zseaborn63.passwordgenerator.generator.util.GetWords;
 
 public class PasswordGenerator{
     private static char[] lowercaseChars = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
@@ -137,17 +137,14 @@ public class PasswordGenerator{
 
             char[] passChars = ConvertToChars.convert(words, separators);
 
-            System.out.println("To Char String:\n\t" + new String(passChars));
-
             char[] intReplaceChars = replaceChar(Arrays.copyOf(passChars.clone(), passChars.length), intReplacementMap);
             if (Arrays.equals(passChars, intReplaceChars)){
                 continue;
             }
             passChars = intReplaceChars;
-            System.out.println("To int replace:\n\t" + new String(passChars));
+
             char[] specialCharReplacementChars = replaceChar(passChars.clone(), specialCharReplacementMap);
             if (Arrays.equals(passChars, specialCharReplacementChars)){
-                System.out.println("They are equal!\n\t" + new String(specialCharReplacementChars));
                 continue;
             }
             passChars = specialCharReplacementChars;
@@ -156,7 +153,6 @@ public class PasswordGenerator{
             passChars = randomCapitalization(passChars);
             password = new String(passChars);
         }
-
 
         System.out.println("The Generated Password:");
         System.out.println("\t" + password);
