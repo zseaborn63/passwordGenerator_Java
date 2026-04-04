@@ -1,5 +1,4 @@
-package com.github.zseaborn63.passwordgenerator.util;
-
+package com.github.zseaborn63.passwordgenerator.generator.util;
 
 import java.io.IOException;
 import java.net.URI;
@@ -21,7 +20,7 @@ public class GetWords {
         
         // // 2. Create an HttpRequest
         // HttpRequest request = HttpRequest.newBuilder()
-        //         .uri(URI.create("https://www.example.com")) // Set the target URL
+        //         .uri(URI.create("https://random-word-api.herokuapp.com/word?number=3&length=6")) // Set the target URL
         //         .GET() // Specify the request method (GET is default)
         //         .build();
         
@@ -37,6 +36,7 @@ public class GetWords {
         //     e.printStackTrace();
         // }
         
+        // TODO: Need to convert response.body() to JSON object
         retVal = new String[] {"test", "Ball", "four"};
         return retVal;
         

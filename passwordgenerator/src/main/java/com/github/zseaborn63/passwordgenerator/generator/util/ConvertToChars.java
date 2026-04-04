@@ -1,4 +1,4 @@
-package com.github.zseaborn63.passwordgenerator.util;
+package com.github.zseaborn63.passwordgenerator.generator.util;
 
 import java.security.SecureRandom;
 
